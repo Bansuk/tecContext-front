@@ -1,3 +1,4 @@
+import { useHistory } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import CategoriesBar from "./CategoriesBar";
 import { MdAddShoppingCart, MdKeyboardArrowDown } from "react-icons/md";
@@ -11,12 +12,14 @@ import {
 } from "../Styles/styleNavbar";
 
 function Navbar() {
+  const history = useHistory();
+  
   return(
     <HeaderContainer>
       <Header>
         <Logo>tecContext</Logo>
         <IconsBox>
-          <BoxUser>
+          <BoxUser onClick={() => history.push("/sign-in")}>
             <FaRegUserCircle color="#00FF00" size="35" />
             <p>Entre ou cadastre-se</p>
           </BoxUser>

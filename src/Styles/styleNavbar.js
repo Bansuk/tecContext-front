@@ -40,6 +40,11 @@ const IconsBox = styled.div`
 const BoxUser = styled.div`
   display: flex;
   align-items: center;
+  &:hover{
+    cursor: pointer;
+  }
+  width: 115px;
+  margin-right: 20px;
 `;
 
 const BoxShoppingCart = styled.div`
