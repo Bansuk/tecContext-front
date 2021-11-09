@@ -1,40 +1,62 @@
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
-import CategoriesBar from "./CategoriesBar";
 import { MdAddShoppingCart, MdKeyboardArrowDown } from "react-icons/md";
+import CategoriesBar from "./CategoriesBar";
 import {
   HeaderContainer,
   Header,
   Logo,
   IconsBox,
   BoxUser,
-  BoxShoppingCart
+  BoxShoppingCart,
+  DivMenu
 } from "../Styles/styleNavbar";
 
 function Navbar() {
+  const [items, setItems] = useState(0);
+  const [opacity, setOpacity] = useState(true)
   const history = useHistory();
+  
+  function showMenuCart() {
+    if (opacity) {
+      setOpacity(false)
+    } else {
+      setOpacity(true)
+    }
+  }
   
   return(
     <HeaderContainer>
       <Header>
-        <Logo>tecContext</Logo>
+        <Logo onClick={() => history.push("/")}>tecContext</Logo>
         <IconsBox>
           <BoxUser onClick={() => history.push("/sign-in")}>
             <FaRegUserCircle color="#00FF00" size="35" />
             <p>Entre ou cadastre-se</p>
           </BoxUser>
-          <BoxShoppingCart>
+          <BoxShoppingCart onClick={showMenuCart}>
             <MdAddShoppingCart color="#00FF00" size="35" />
             <div>
-              <span>0</span>
+              <span>{items}</span>
               <MdKeyboardArrowDown color="#00FF00" size="30" />
             </div>
           </BoxShoppingCart>
         </IconsBox>
       </Header>
+      <DivMenu opacity={opacity} >
+        <button 
+          disabled={items === 0 ? true : false} 
+          onClick={() => history.push("/shopping-cart")}>
+          { items === 0 ? 
+          "O carrinho está vazio" 
+          : "Produtos no carrinho"}
+        </button>
+      </DivMenu>
       <CategoriesBar />
     </HeaderContainer>
   );
 }
 
 export default Navbar;
+

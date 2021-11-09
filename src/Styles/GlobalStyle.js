@@ -51,6 +51,12 @@ const GlobalStyle = createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
+    a {
+        text-decoration: none;
+    }
+    button {
+        border: none;
+    }
 `;
 
 export default GlobalStyle;
