@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { Content, Title, Form, StyledButton, StyledLink } from "./Styles.js";
-import { signUpSchema } from "../../Validation/Schemes.js";
-import { signUpUser } from "../../Services/api.services.js";
+import { Content, Title, Form, StyledButton, StyledLink } from "../Styles/styleAccount.js";
+import { signUpSchema } from "../Validation/Schemes.js";
+import { signUpUser } from "../Services/api.services.js";
 
 function SignUp() {
     const history = useHistory();

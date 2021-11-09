@@ -1,15 +1,17 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`  
-    html, body, button, div, span, applet, object, iframe,
+const GlobalStyle = createGlobalStyle`
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+    */
+    * {
+        box-sizing: border-box;
+    }
+    html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
-    del, dfn, em, img, ins, input, kbd, q, s, samp,
+    del, dfn, em, img, ins, kbd, q, s, samp,
     small, strike, strong, sub, sup, tt, var,
     b, u, i, center,
     dl, dt, dd, ol, ul, li,
@@ -25,8 +27,6 @@ const GlobalStyle = createGlobalStyle`
         font-size: 100%;
         font: inherit;
         vertical-align: baseline;
-        box-sizing: border-box;
-        text-decoration: none;  
     }
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure, 
@@ -50,6 +50,12 @@ const GlobalStyle = createGlobalStyle`
     table {
         border-collapse: collapse;
         border-spacing: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    button {
+        border: none;
     }
 `;
 

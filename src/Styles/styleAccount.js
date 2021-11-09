@@ -5,13 +5,13 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     font-family: "Roboto", sans-serif;
-    height: 100vh;
+    height: 110vh;
     justify-content: center;
 `;
 
 const Title = styled.h1`
     font-size: 40px;
-    margin-bottom: 70px;
+    margin: 65px 0 70px 0;
 `;
 
 const Form = styled.form`
