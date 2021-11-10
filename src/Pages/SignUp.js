@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { Content, Title, Form, StyledButton, StyledLink } from "../Styles/styleAccount.js";
+import {
+    Content,
+    Title,
+    Form,
+    StyledButton,
+    StyledLink,
+} from "../Styles/styleAccount.js";
 import { signUpSchema } from "../Validation/Schemes.js";
 import { signUpUser } from "../Services/api.services.js";
 
@@ -20,6 +26,7 @@ function SignUp() {
 
         if (isInputInvalid) {
             alert(isInputInvalid);
+            return;
         }
 
         signUpUser(body)
@@ -27,9 +34,13 @@ function SignUp() {
                 history.push("/");
             })
             .catch(err => {
-                alert(
-                    "Houve um erro ao realizar o cadastro! Por favor, tente novamente!"
-                );
+                if (err.response.status === 409) {
+                    alert("Esse e-mail já está em uso!");
+                } else {
+                    alert(
+                        "Houve um erro ao realizar o cadastro! Por favor, tente novamente!"
+                    );
+                }
             });
     }
 
