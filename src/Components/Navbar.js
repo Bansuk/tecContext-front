@@ -19,7 +19,6 @@ function Navbar() {
   const [items, setItems] = useState(0);
   const [opacity, setOpacity] = useState(true)
   const token = useContext(UserContext);
-  console.log(token)
   const {userId, userName} = token && decodeToken(token);
   const history = useHistory(); 
   
