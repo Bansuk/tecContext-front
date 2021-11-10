@@ -6,4 +6,8 @@ function signUpUser(user) {
     return axios.post(`${URL}sign-up`, user);
 }
 
-export { signUpUser };
+function signInUser(user) {
+    return axios.post(`${URL}sign-in`, user)
+}
+
+export { signUpUser, signInUser };

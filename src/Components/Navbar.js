@@ -1,8 +1,10 @@
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import { MdAddShoppingCart, MdKeyboardArrowDown } from "react-icons/md";
 import CategoriesBar from "./CategoriesBar";
+import UserContext from "../Contexts/UserContext.js";
+import decodeToken from "../Auxiliar/decodeToken";
 import {
   HeaderContainer,
   Header,
@@ -16,7 +18,10 @@ import {
 function Navbar() {
   const [items, setItems] = useState(0);
   const [opacity, setOpacity] = useState(true)
-  const history = useHistory();
+  const token = useContext(UserContext);
+  console.log(token)
+  const {userId, userName} = token && decodeToken(token);
+  const history = useHistory(); 
   
   function showMenuCart() {
     if (opacity) {
@@ -33,7 +38,7 @@ function Navbar() {
         <IconsBox>
           <BoxUser onClick={() => history.push("/sign-in")}>
             <FaRegUserCircle color="#00FF00" size="35" />
-            <p>Entre ou cadastre-se</p>
+            {token ? <p>Olá, {userName}</p> : <p>Entre ou cadastre-se</p>}
           </BoxUser>
           <BoxShoppingCart onClick={showMenuCart}>
             <MdAddShoppingCart color="#00FF00" size="35" />
