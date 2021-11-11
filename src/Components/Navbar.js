@@ -14,7 +14,7 @@ import {
 } from "../Styles/styleNavbar";
 
 function Navbar() {
-  const [items, setItems] = useState(0);
+  const [items, setItems] = useState(1);
   const [opacity, setOpacity] = useState(true)
   const history = useHistory();
   
@@ -50,7 +50,7 @@ function Navbar() {
           onClick={() => history.push("/shopping-cart")}>
           { items === 0 ? 
           "O carrinho está vazio" 
-          : "Produtos no carrinho"}
+          : "Acesse seu carrinho aqui"}
         </button>
       </DivMenu>
       <CategoriesBar />
