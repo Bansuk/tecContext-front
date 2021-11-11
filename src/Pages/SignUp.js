@@ -31,7 +31,7 @@ function SignUp() {
 
         signUpUser(body)
             .then(res => {
-                history.push("/");
+                history.push("/sign-in");
             })
             .catch(err => {
                 if (err.response.status === 409) {

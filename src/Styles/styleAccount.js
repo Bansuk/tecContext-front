@@ -11,7 +11,13 @@ const Content = styled.div`
 
 const Title = styled.h1`
     font-size: 40px;
-    margin: 65px 0 70px 0;
+    margin-top: 65px;
+    margin-bottom: ${props => (props.page ? "15px" : "70px")};
+`;
+
+const Subtitle = styled.h2`
+    font-size: 20px;
+    margin-bottom: 33px;
 `;
 
 const Form = styled.form`
@@ -60,4 +66,4 @@ const StyledLink = styled.span`
     color: #000;
 `;
 
-export { Content, Title, Form, StyledButton, StyledLink };
+export { Content, Title, Subtitle, Form, StyledButton, StyledLink };
