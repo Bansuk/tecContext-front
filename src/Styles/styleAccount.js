@@ -27,6 +27,7 @@ const Form = styled.form`
 
     & input {
         border-radius: 8px;
+        border: none;
         box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
         font-size: 20px;
         height: 48px;
