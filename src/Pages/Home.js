@@ -3,16 +3,13 @@ import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import { getProducts } from "../Services/api.services";
 import { 
-    IoIosArrowDroprightCircle,
-    IoIosArrowDropleftCircle, 
- } from "react-icons/io";
-import { 
     SessionTitle,
     SessionTitle2,
     ProductsConatiner,
     Product,
     Image
 } from "../Styles/styleHomeProducts";
+
 
 function Home() {
     const [products, setProducts] = useState([]);
@@ -25,14 +22,21 @@ function Home() {
             .catch((error) => {
                 console.log(error);
             })
-    }, [])
+    }, [])    
+
+    const breakPoints = [
+        { width: 500, itemsToShow: 1 },
+        { width: 768, itemsToShow: 2 },
+        { width: 1200, itemsToShow: 3},
+        { width: 1500, itemsToShow: 4 },
+    ]
 
   
     return (
         <>
             <Navbar />
             <SessionTitle>DESTAQUES</SessionTitle>
-            <ProductsConatiner>
+            <ProductsConatiner breakPoints={breakPoints} pagination={false}>
                 {products.map((product, index) => (
                     <Link to={`/products/${product.id}`}>
                         <Product key={index}>
@@ -48,7 +52,7 @@ function Home() {
                 ))}
             </ProductsConatiner>
             <SessionTitle2>OFERTAS IMPERDÍVEIS</SessionTitle2>
-            <ProductsConatiner>
+            <ProductsConatiner breakPoints={breakPoints} pagination={false}>
                 {products.map((product, index) => (
                     <Link to={`/products/${product.id}`}>
                         <Product key={index}>
@@ -68,3 +72,4 @@ function Home() {
 }
 
 export default Home;
+

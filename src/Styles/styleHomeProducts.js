@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Carousel from 'react-elastic-carousel';
 
 const SessionTitle = styled.h2`
     font-size: 25px;
@@ -6,8 +7,7 @@ const SessionTitle = styled.h2`
     height: 35px;
     width: 135px;
     border-bottom: 2px solid #00FF00;
-    margin-bottom: 100px;
-    margin: 196px 154px 0 154px;
+    margin: 196px 90px 0 90px;
 `;
 
 const SessionTitle2 = styled.h2`
@@ -17,20 +17,31 @@ const SessionTitle2 = styled.h2`
     width: 270px;
     border-bottom: 2px solid #00FF00;
     margin-bottom: 100px;
-    margin: 50px 154px 0 154px;
+    margin: 50px 90px 0 90px;
 `;
 
-const ProductsConatiner = styled.div`
-    height: 485px;
-    width: 81vw;
-    margin: 0 auto;
+const ProductsConatiner = styled(Carousel)`
+    margin: 20px auto 20px auto;
     padding: 0 15px 0 15px;
-    overflow-x: scroll;
-    display: flex;
-    align-items: center;
+    a {
+        height: 420px;
+    }
+    button {
+        background-color:  #00FF00;
+        color: #FFFFFF;
+        box-shadow: none;
+        :hover:enabled {
+            background-color: #00FF00;
+        }
+        :focus:enabled {
+            background-color: #00FF00;
+        }
+        
+    }
+    /* align-items: center;
     ::-webkit-scrollbar {
         display: none;
-    } 
+    }  */
 `;
 
 const Product = styled.div`
