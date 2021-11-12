@@ -5,16 +5,16 @@ const SessionTitle = styled.h2`
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
     height: 35px;
-    width: 135px;
+    width: 150px;
     border-bottom: 2px solid #00FF00;
-    margin: 196px 90px 0 90px;
+    margin: 50px 90px 0 90px;
 `;
 
 const SessionTitle2 = styled.h2`
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
     height: 35px;
-    width: 270px;
+    width: 460px;
     border-bottom: 2px solid #00FF00;
     margin-bottom: 100px;
     margin: 50px 90px 0 90px;
@@ -35,34 +35,52 @@ const ProductsConatiner = styled(Carousel)`
         }
         :focus:enabled {
             background-color: #00FF00;
-        }
-        
+        }        
     }
-    /* align-items: center;
-    ::-webkit-scrollbar {
-        display: none;
-    }  */
 `;
 
 const Product = styled.div`
     height: 400px;
     min-width: 335px;
-    margin: 0 15px 0 15px;
+    margin: 0 20px 0 20px;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
     position: relative;
     h3 {
+        margin-top: 60px;
         font-size: 25px;
         font-family: 'Roboto', sans-serif;
         text-align: center;
+    }
+
+    span {
+        text-decoration: line-through;
+        font-size: 20px;
+        margin-left: 15px;
+        color: red;
     }
     p {
         font-size: 30px;
         font-family: 'Roboto', sans-serif;
         position: absolute;
-        bottom: 20px;
+        bottom: 30px;
         left: 15px;
         font-weight: bold;
     }
+
+`;
+
+const Discount = styled.div`
+    border-radius: 8px;
+    background-color: #00FF00;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    right: 20px;
+    top: 25px;
 
 `;
 
@@ -76,10 +94,18 @@ const Image = styled.div`
     }
 `;
 
+const Banner = styled.img`
+    width: 100vw;
+    height: 400px;
+    margin-top: 130px;
+`;
+
 export {
     SessionTitle,
     SessionTitle2,
     ProductsConatiner,
     Product,
-    Image
+    Image,
+    Discount,
+    Banner
 }

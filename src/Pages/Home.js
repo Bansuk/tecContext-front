@@ -1,19 +1,31 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import { getProducts } from "../Services/api.services";
+import { getPromotionsProducts, getProducts } from "../Services/api.services";
+import PromotionProduct from "../Components/PromotionProduct";
+import ComponentProduct from "../Components/ComponentProduct";
+import blackfriday from "../assets/blackfriday.png"
 import { 
     SessionTitle,
     SessionTitle2,
     ProductsConatiner,
-    Product,
-    Image
+    Banner
 } from "../Styles/styleHomeProducts";
 
 
 function Home() {
     const [products, setProducts] = useState([]);
+    const [promotions, setPromotions] = useState([]);
 
+    useEffect(() => {
+        getPromotionsProducts()
+            .then((resp) => {
+                setPromotions(resp.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }, [])   
+    
     useEffect(() => {
         getProducts()
             .then((resp) => {
@@ -22,7 +34,7 @@ function Home() {
             .catch((error) => {
                 console.log(error);
             })
-    }, [])    
+    }, [])
 
     const breakPoints = [
         { width: 500, itemsToShow: 1 },
@@ -30,41 +42,21 @@ function Home() {
         { width: 1200, itemsToShow: 3},
         { width: 1500, itemsToShow: 4 },
     ]
-
   
     return (
         <>
             <Navbar />
-            <SessionTitle>DESTAQUES</SessionTitle>
+            <Banner alt="Banner Black friday" src={blackfriday} />
+            <SessionTitle>PROMOÇÕES</SessionTitle>
             <ProductsConatiner breakPoints={breakPoints} pagination={false}>
-                {products.map((product, index) => (
-                    <Link to={`/products/${product.id}`}>
-                        <Product key={index}>
-                            <Image>
-                                <img alt="produto" src={product.image} />
-                            </Image>
-                            <h3>{product.name}</h3>
-                            <p>{`R$ ${Number(product.price)
-                                .toLocaleString('pt-br', {minimumFractionDigits: 2})}`}
-                            </p>
-                        </Product>
-                    </Link>
+                {promotions.map((product) => (
+                    <PromotionProduct product={product}/>
                 ))}
             </ProductsConatiner>
-            <SessionTitle2>OFERTAS IMPERDÍVEIS</SessionTitle2>
+            <SessionTitle2>ESCOLHE AÍ QUAL COMBINA COM VOCÊ</SessionTitle2>
             <ProductsConatiner breakPoints={breakPoints} pagination={false}>
-                {products.map((product, index) => (
-                    <Link to={`/products/${product.id}`}>
-                        <Product key={index}>
-                            <Image>
-                                <img alt="produto" src={product.image} />
-                            </Image>
-                            <h3>{product.name}</h3>
-                            <p>{`R$ ${Number(product.price)
-                                .toLocaleString('pt-br', {minimumFractionDigits: 2})}`}
-                            </p>
-                        </Product>
-                    </Link>
+                {products.map((product) => (
+                   <ComponentProduct product={product} />
                 ))}
             </ProductsConatiner>
         </>

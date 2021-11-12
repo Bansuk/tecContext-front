@@ -16,17 +16,17 @@ import {
 } from "../Styles/styleNavbar";
 
 function Navbar() {
-  const [items, setItems] = useState(1);
-  const [opacity, setOpacity] = useState(true)
+  const [items, setItems] = useState(0);
+  const [isOpacity, setIsOpacity] = useState(true)
   const token = useContext(UserContext);
   const {userId, userName} = token && decodeToken(token);
   const history = useHistory(); 
   
   function showMenuCart() {
-    if (opacity) {
-      setOpacity(false)
+    if (isOpacity) {
+      setIsOpacity(false)
     } else {
-      setOpacity(true)
+      setIsOpacity(true)
     }
   }
   
@@ -48,7 +48,7 @@ function Navbar() {
           </BoxShoppingCart>
         </IconsBox>
       </Header>
-      <DivMenu opacity={opacity} >
+      <DivMenu isOpacity={isOpacity} >
         <button 
           disabled={items === 0 ? true : false} 
           onClick={() => history.push("/shopping-cart")}>
