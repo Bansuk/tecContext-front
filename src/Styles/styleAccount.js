@@ -27,6 +27,8 @@ const Form = styled.form`
 
     & input {
         border-radius: 8px;
+        padding-left: 15px;
+        border: none;
         box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
         font-size: 20px;
         height: 48px;
@@ -38,7 +40,6 @@ const Form = styled.form`
 
     & input::placeholder {
         font-size: 20px;
-        padding-left: 15px;
     }
 
     & :focus {
@@ -59,6 +60,7 @@ const StyledButton = styled.button`
     max-width: 300px;
     min-width: 150px;
     width: 25vw;
+    cursor: pointer;
 `;
 
 const StyledLink = styled.span`

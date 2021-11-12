@@ -6,6 +6,7 @@ const HeaderContainer = styled.div`
   left: 0;
   right: 0;
   top: 0;
+  z-index: 1;
   p {
     font-size: 15px;
     color: #00FF00;
@@ -66,7 +67,7 @@ const BoxShoppingCart = styled.div`
 `;
 
 const DivMenu = styled.div`
-  opacity : ${({opacity}) => opacity ? 0 : 1};
+  opacity : ${({isOpacity}) => isOpacity ? 0 : 1};
   width: 120px;
   display: flex;
   justify-content: center;

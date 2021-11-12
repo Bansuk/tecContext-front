@@ -10,4 +10,18 @@ function signInUser(user) {
     return axios.post(`${URL}sign-in`, user)
 }
 
-export { signUpUser, signInUser };
+function getPromotionsProducts() {
+    return axios.get(`${URL}promotions`)
+}
+
+function getProducts() {
+    return axios.get(`${URL}products`)
+}
+
+
+export { 
+    signUpUser, 
+    signInUser,
+    getPromotionsProducts,
+    getProducts
+};
