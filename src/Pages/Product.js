@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { getProductInfo } from "../Services/api.services.js";
 import {
-    Test,
+    Subcontent,
     Content,
     ProductInfo,
     Title,
@@ -9,27 +11,41 @@ import {
     Price,
     Button,
     Image,
+    UnavailableWarning,
 } from "../Styles/styleProduct.js";
 
 function Product() {
     const { productId } = useParams();
+    const [productInfo, setProductInfo] = useState([]);
+
+    useEffect(() => {
+        getProductInfo(productId)
+            .then(res => setProductInfo(res.data[0]))
+            .catch(err => console.log(err));
+    });
 
     return (
         <Content>
-            <Test>
-                <Image src="https://m.media-amazon.com/images/I/51Yy7RbOVLL._AC_SL1000_.jpg" />
+            <Subcontent>
+                <Image src={productInfo.image} />
                 <ProductInfo>
-                    <Title>Notebook Lenovo IdeaPad 3i</Title>
-                    <Description>
-                        Intel Core i3-10110U, 4GB RAM, 256 GB SSD, Windows 10,
-                        15.6", Prata
-                    </Description>
+                    <Title>{productInfo.name}</Title>
+                    <Description>{productInfo.description}</Description>
                     <PurchaseInfo>
-                        <Price>R$ 2.739,00</Price>
-                        <Button>Adicionar ao carrinho</Button>
+                        <Price>{`R$ ${Number(productInfo.price).toLocaleString(
+                            "pt-br",
+                            { minimumFractionDigits: 2 }
+                        )}`}</Price>
+                        {productInfo.stock_qtd ? (
+                            <Button>Adicionar ao carrinho</Button>
+                        ) : (
+                            <UnavailableWarning>
+                                Produto Indisponível
+                            </UnavailableWarning>
+                        )}
                     </PurchaseInfo>
                 </ProductInfo>
-            </Test>
+            </Subcontent>
         </Content>
     );
 }

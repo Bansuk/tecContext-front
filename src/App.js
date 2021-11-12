@@ -7,17 +7,18 @@ import Navbar from "./Components/Navbar";
 import SignIn from "./Pages/SignIn.js";
 import { useState } from "react/cjs/react.development";
 import { useEffect } from "react";
+import Product from "./Pages/Product";
 
 function App() {
     const [user, setUser] = useState("");
 
     useEffect(() => {
         let loggedInUser = localStorage.getItem("user");
-        if(loggedInUser) {
+        if (loggedInUser) {
             loggedInUser = JSON.parse(loggedInUser);
             setUser(loggedInUser);
         }
-    }, [])
+    }, []);
 
     return (
         <UserContext.Provider value={user}>
@@ -32,6 +33,9 @@ function App() {
                     </Route>
                     <Route path="/sign-in" exact>
                         <SignIn setUser={setUser} />
+                    </Route>
+                    <Route path="/product/:productId" exact>
+                        <Product />
                     </Route>
                 </Switch>
                 <GlobalStyle />

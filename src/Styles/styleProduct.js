@@ -8,7 +8,7 @@ const Content = styled.div`
     font-family: "Roboto", sans-serif;
 `;
 
-const Test = styled.div`
+const Subcontent = styled.div`
     display: flex;
     justify-content: space-evenly;
     width: 90%;
@@ -59,8 +59,13 @@ const Button = styled.button`
     }
 `;
 
+const UnavailableWarning = styled.span`
+    font-size: 20px;
+    color: red;
+`;
+
 export {
-    Test,
+    Subcontent,
     Content,
     Image,
     ProductInfo,
@@ -69,4 +74,5 @@ export {
     PurchaseInfo,
     Price,
     Button,
+    UnavailableWarning,
 };
