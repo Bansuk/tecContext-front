@@ -25,6 +25,7 @@ const ProductsConatiner = styled(Carousel)`
     padding: 0 15px 0 15px;
     a {
         height: 420px;
+        width: 335px;
     }
     button {
         background-color:  #00FF00;
@@ -42,7 +43,7 @@ const ProductsConatiner = styled(Carousel)`
 const Product = styled.div`
     height: 400px;
     width: 335px;
-    margin: 0 20px 0 20px;
+    margin: 0 20px 15px 20px;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
     position: relative;
     h3 {

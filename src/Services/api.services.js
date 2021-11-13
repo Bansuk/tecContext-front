@@ -7,15 +7,15 @@ function signUpUser(user) {
 }
 
 function signInUser(user) {
-    return axios.post(`${URL}sign-in`, user)
+    return axios.post(`${URL}sign-in`, user);
 }
 
 function getPromotionsProducts() {
-    return axios.get(`${URL}promotions`)
+    return axios.get(`${URL}promotions`);
 }
 
 function getProducts() {
-    return axios.get(`${URL}products`)
+    return axios.get(`${URL}products`);
 }
 
 function getCategories() {
@@ -26,12 +26,21 @@ function getProductsByCategories(categoryId) {
     return axios.get(`${URL}categories/${categoryId}`)
 }
 
+function getProductInfo(id) {
+    return axios.get(`${URL}product/${id}`);
+}
 
-export { 
-    signUpUser, 
+function postCartItem(body) {
+    return axios.post(`${URL}cart`, body);
+}
+
+export {
+    signUpUser,
     signInUser,
     getPromotionsProducts,
     getProducts,  
     getCategories,
-    getProductsByCategories
+    getProductsByCategories,
+    getProductInfo,
+    postCartItem,
 };
