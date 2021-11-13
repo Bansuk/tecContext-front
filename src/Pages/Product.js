@@ -31,6 +31,11 @@ function Product({ setCart }) {
             .catch(err => console.log(err));
     });
 
+    useEffect(() => {
+        cartPersitance = JSON.stringify(cart);
+        localStorage.setItem("cart", cartPersitance);
+    }, [cart]);
+
     function addItemCart() {
         const body = {
             product_id: productId,
@@ -40,9 +45,6 @@ function Product({ setCart }) {
 
         if (!userId) {
             setCart([...cart, { body }]);
-            cartPersitance = JSON.stringify(cart);
-            localStorage.setItem("cart", cartPersitance);
-            console.log(cart);
         } else postCartItem(body);
     }
 

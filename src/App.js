@@ -13,7 +13,6 @@ import Product from "./Pages/Product";
 function App() {
     const [user, setUser] = useState("");
     const [cart, setCart] = useState([]);
-    console.log(cart);
 
     useEffect(() => {
         let loggedInUser = localStorage.getItem("user");
@@ -28,6 +27,8 @@ function App() {
         if (localCart) {
             localCart = JSON.parse(localCart);
             setCart(localCart);
+        } else {
+            localStorage.setItem("cart", JSON.stringify(cart));
         }
     }, []);
 
