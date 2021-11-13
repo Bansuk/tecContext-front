@@ -1,5 +1,5 @@
-import { Link, useHistory } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { getCategories } from "../Services/api.services";
 import { 
   NavbarComponent, 
@@ -56,38 +56,3 @@ function CategoriesBar() {
 }
 
 export default CategoriesBar;
-
-
-// return (
-//   <NavbarComponent>
-    
-//       <BoxCategory  onClick={() => {setCategory("Notebooks"); history.push("/categories/laptops");}}>
-//         <MdLaptopChromebook color="#FFFFFF" size="20" />
-//         <span>Notebooks</span>
-//       </BoxCategory>     
-//       <BoxCategory onClick={() => { setCategory("Computadores"); history.push("/products/computers");}}>
-//         <MdOutlineDesktopWindows color="#FFFFFF" size="20" />              
-//         <span>Computadores</span>
-//       </BoxCategory> 
-//       <BoxCategory onClick={() => { setCategory("Impressoras"); history.push("/products/printers");}}>
-//         <MdLocalPrintshop color="#FFFFFF" size="20"/>
-//         <span>Impressoras</span>
-//       </BoxCategory >
-//       <BoxCategory onClick={() => { setCategory("Smartphones"); history.push("/products/smartphones");}}>
-//         <MdOutlineSmartphone color="#FFFFFF" size="20" />
-//         <span>Smarthphones</span>
-//       </BoxCategory> 
-//       <BoxCategory onClick={() => { setCategory("Tablets"); history.push("/products/tablets");}}>
-//         <MdOutlineTabletAndroid color="#FFFFFF" size="20"/>
-//         <span>Tablets</span>
-//       </BoxCategory> 
-//       <BoxCategory onClick={() => { setCategory("Videogames"); history.push("/products/videogames");}}>
-//         <MdVideogameAsset color="#FFFFFF" size="20"/>
-//         <span>Games</span>
-//       </BoxCategory> 
-//       <BoxCategory onClick={() => { setCategory("Acessórios"); history.push("/products/accessories");}}>
-//         <MdMouse color="#FFFFFF" size="20"/>
-//         <span>Acessórios</span>
-//       </BoxCategory>  
-// </NavbarComponent>
-// );
