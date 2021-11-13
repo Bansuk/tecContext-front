@@ -21,6 +21,7 @@ function Navbar() {
   const token = useContext(UserContext);
   const {userId, userName} = token && decodeToken(token);
   const history = useHistory(); 
+
   
   function showMenuCart() {
     if (isOpacity) {

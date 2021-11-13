@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import { getPromotionsProducts, getProducts } from "../Services/api.services";
-import PromotionProduct from "../Components/PromotionProduct";
 import ComponentProduct from "../Components/ComponentProduct";
 import blackfriday from "../assets/blackfriday.png"
 import { 
@@ -49,8 +48,8 @@ function Home() {
             <Banner alt="Banner Black friday" src={blackfriday} />
             <SessionTitle>PROMOÇÕES</SessionTitle>
             <ProductsConatiner breakPoints={breakPoints} pagination={false}>
-                {promotions.map((product) => (
-                    <PromotionProduct product={product}/>
+                {promotions.map((promotion) => (
+                    <ComponentProduct product={promotion}/>
                 ))}
             </ProductsConatiner>
             <SessionTitle2>ESCOLHE AÍ QUAL COMBINA COM VOCÊ</SessionTitle2>

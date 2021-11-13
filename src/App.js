@@ -7,6 +7,7 @@ import Navbar from "./Components/Navbar";
 import SignIn from "./Pages/SignIn.js";
 import { useState } from "react/cjs/react.development";
 import { useEffect } from "react";
+import ProductsByCategory from "./Pages/ProductsByCategory";
 
 function App() {
     const [user, setUser] = useState("");
@@ -32,6 +33,9 @@ function App() {
                     </Route>
                     <Route path="/sign-in" exact>
                         <SignIn setUser={setUser} />
+                    </Route>
+                    <Route path="/categories/:categoryId" exact>
+                        <ProductsByCategory />
                     </Route>
                 </Switch>
                 <GlobalStyle />

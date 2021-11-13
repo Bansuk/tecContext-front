@@ -41,7 +41,7 @@ const ProductsConatiner = styled(Carousel)`
 
 const Product = styled.div`
     height: 400px;
-    min-width: 335px;
+    width: 335px;
     margin: 0 20px 0 20px;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -65,6 +65,9 @@ const Product = styled.div`
         bottom: 30px;
         left: 15px;
         font-weight: bold;
+    }
+    img {
+        margin-top: 20px;
     }
 
 `;
@@ -97,7 +100,7 @@ const Image = styled.div`
 const Banner = styled.img`
     width: 100vw;
     height: 400px;
-    margin-top: 130px;
+    margin-top: 129px;
 `;
 
 export {

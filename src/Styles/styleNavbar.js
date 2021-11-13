@@ -68,6 +68,7 @@ const BoxShoppingCart = styled.div`
 
 const DivMenu = styled.div`
   opacity : ${({isOpacity}) => isOpacity ? 0 : 1};
+  z-index: ${({isOpacity}) => isOpacity ? -1 : 2};
   width: 120px;
   display: flex;
   justify-content: center;
