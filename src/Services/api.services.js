@@ -18,6 +18,14 @@ function getProducts() {
     return axios.get(`${URL}products`);
 }
 
+function getCategories() {
+    return axios.get(`${URL}categories`)
+}
+
+function getProductsByCategories(categoryId) {
+    return axios.get(`${URL}categories/${categoryId}`)
+}
+
 function getProductInfo(id) {
     return axios.get(`${URL}product/${id}`);
 }
@@ -30,7 +38,9 @@ export {
     signUpUser,
     signInUser,
     getPromotionsProducts,
-    getProducts,
+    getProducts,  
+    getCategories,
+    getProductsByCategories,
     getProductInfo,
     postCartItem,
 };

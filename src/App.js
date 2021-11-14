@@ -6,6 +6,7 @@ import Home from "./Pages/Home";
 import SignUp from "./Pages/SignUp.js";
 import Navbar from "./Components/Navbar";
 import SignIn from "./Pages/SignIn.js";
+import ProductsByCategory from "./Pages/ProductsByCategory";
 import { useEffect, useState } from "react";
 import Product from "./Pages/Product";
 
@@ -45,6 +46,9 @@ function App() {
                         </Route>
                         <Route path="/sign-in" exact>
                             <SignIn setUser={setUser} />
+                        </Route>
+                        <Route path="/categories/:categoryId" exact>
+                            <ProductsByCategory />
                         </Route>
                         <Route path="/product/:productId" exact>
                             <Product setCart={setCart} />
