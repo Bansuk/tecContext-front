@@ -8,6 +8,7 @@ import Navbar from "./Components/Navbar";
 import SignIn from "./Pages/SignIn.js";
 import { useState } from "react/cjs/react.development";
 import { useEffect } from "react";
+import ProductsByCategory from "./Pages/ProductsByCategory";
 import Product from "./Pages/Product";
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
                         </Route>
                         <Route path="/sign-in" exact>
                             <SignIn setUser={setUser} />
+                        </Route>
+                        <Route path="/categories/:categoryId" exact>
+                            <ProductsByCategory />
                         </Route>
                         <Route path="/product/:productId" exact>
                             <Product setCart={setCart} />

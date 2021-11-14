@@ -8,7 +8,7 @@ import {
 
 function ComponentProduct({product}) {
     return(
-        <Link to={`/products/${product.id}`}>
+        <Link to={`/product/${product.id}`}>
             <Product key={product.id}>
                 <Image>
                     <img alt="produto" src={product.image} />
