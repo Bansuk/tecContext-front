@@ -6,8 +6,7 @@ import Home from "./Pages/Home";
 import SignUp from "./Pages/SignUp.js";
 import Navbar from "./Components/Navbar";
 import SignIn from "./Pages/SignIn.js";
-import { useState } from "react/cjs/react.development";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Product from "./Pages/Product";
 
 function App() {
