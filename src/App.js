@@ -8,37 +8,36 @@ import Navbar from "./Components/Navbar";
 import SignIn from "./Pages/SignIn.js";
 import { useState } from "react/cjs/react.development";
 import { useEffect } from "react";
-import ProductsByCategory from "./Pages/ProductsByCategory";
 import Product from "./Pages/Product";
 
 function App() {
-    const [user, setUser] = useState("");
-    const [cart, setCart] = useState([]);
+    // const [user, setUser] = useState("");
+    // const [cart, setCart] = useState([]);
 
-    useEffect(() => {
-        let loggedInUser = localStorage.getItem("user");
-        if (loggedInUser) {
-            loggedInUser = JSON.parse(loggedInUser);
-            setUser(loggedInUser);
-        }
-    }, []);
+    // useEffect(() => {
+    //     let loggedInUser = localStorage.getItem("user");
+    //     if (loggedInUser) {
+    //         loggedInUser = JSON.parse(loggedInUser);
+    //         setUser(loggedInUser);
+    //     }
+    // }, []);
 
-    useEffect(() => {
-        let localCart = localStorage.getItem("cart");
-        if (localCart) {
-            localCart = JSON.parse(localCart);
-            setCart(localCart);
-        } else {
-            localStorage.setItem("cart", JSON.stringify(cart));
-        }
-    }, []);
+    // useEffect(() => {
+    //     let localCart = localStorage.getItem("cart");
+    //     if (localCart) {
+    //         localCart = JSON.parse(localCart);
+    //         setCart(localCart);
+    //     } else {
+    //         localStorage.setItem("cart", JSON.stringify(cart));
+    //     }
+    // }, []);
 
     return (
-        <UserContext.Provider value={user}>
-            <CartContext.Provider value={cart}>
+        <UserContext.Provider>
+            <CartContext.Provider>
                 <BrowserRouter>
                     <Navbar />
-                    <Switch>
+                    {/* <Switch>
                         <Route path="/" exact>
                             <Home />
                         </Route>
@@ -48,13 +47,10 @@ function App() {
                         <Route path="/sign-in" exact>
                             <SignIn setUser={setUser} />
                         </Route>
-                        <Route path="/categories/:categoryId" exact>
-                            <ProductsByCategory />
-                        </Route>
                         <Route path="/product/:productId" exact>
                             <Product setCart={setCart} />
                         </Route>
-                    </Switch>
+                    </Switch> */}
                     <GlobalStyle />
                 </BrowserRouter>
             </CartContext.Provider>
