@@ -14,6 +14,7 @@ import ProductRow from "../Components/ProductRow.js";
 function Checkout() {
     const cart = useContext(CartContext);
     const [products, setProducts] = useState([]);
+    let total = 0;
 
     useEffect(() => {
         cart.forEach(product => {
@@ -24,6 +25,10 @@ function Checkout() {
             });
         });
     }, [cart]);
+
+    products.forEach(product => {
+        total += product.info.price * product.quantity;
+    });
 
     return (
         <Container>
@@ -58,7 +63,9 @@ function Checkout() {
                 <Total>
                     <div>
                         <span>TOTAL</span>
-                        <span>R$ 5.478,00</span>
+                        <span>{`R$ ${Number(total).toLocaleString("pt-br", {
+                            minimumFractionDigits: 2,
+                        })}`}</span>
                     </div>
                     <button>Fechar compra</button>
                 </Total>
