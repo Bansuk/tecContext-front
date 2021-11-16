@@ -13,11 +13,19 @@ const Title = styled.h1`
     font-size: 40px;
     margin-top: 65px;
     margin-bottom: ${props => (props.page ? "15px" : "70px")};
+    @media (max-width: 700px) {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
 `;
 
 const Subtitle = styled.h2`
     font-size: 20px;
     margin-bottom: 33px;
+    @media (max-width: 700px) {
+        text-align: center;
+    }
 `;
 
 const Form = styled.form`

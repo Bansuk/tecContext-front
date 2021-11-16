@@ -2,12 +2,15 @@ import styled from "styled-components";
 
 const NavbarComponent = styled.div`
   height: 65px;
-  background-color: #000000;
   span {
     color: #FFFFFF;
     font-size: 15px;
     margin-top: 25px;
     font-family: 'Roboto', sans-serif;
+  }
+  @media (max-width: 700px) {
+    height: auto;
+    padding: 0 10px 0 10px;
   }
 `;
 
@@ -16,6 +19,22 @@ const ContainerCategory = styled.div`
   justify-content: space-around;
   a {
     z-index: 1;
+  }
+  @media (max-width: 700px) {
+    border: 2px solid #00FF00;
+    margin-bottom: 5px;
+    overflow: auto;
+    white-space: nowrap;
+    justify-content: inherit;
+    height: 40px;
+    display: inicial;
+    span {
+      margin: 0;
+    }
+    a {
+      display: flex;
+      align-items: center;
+    }
   }
 `;
 
@@ -55,9 +74,10 @@ const BoxIconCategory = styled.div`
   svg:last-child {
     position: absolute;
     right: 6.5vw;
-  } 
- 
-  
+  }
+  @media(max-width: 700px) {
+    display: none;
+  }  
 `;
 
 export {

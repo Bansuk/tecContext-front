@@ -32,7 +32,7 @@ function CategoriesBar() {
   }, [])   
  
     return (
-      <NavbarComponent>
+      <NavbarComponent>       
         <BoxIconCategory>
           <MdLaptopChromebook color="#FFFFFF" size="20" />
           <MdOutlineDesktopWindows color="#FFFFFF" size="20" /> 
