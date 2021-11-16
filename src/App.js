@@ -10,6 +10,7 @@ import ProductsByCategory from "./Pages/ProductsByCategory";
 import { useEffect, useState } from "react";
 import Product from "./Pages/Product";
 import Checkout from "./Pages/Checkout";
+import OrderConcluded from "./Pages/OrderConcluded";
 
 function App() {
     const [user, setUser] = useState("");
@@ -56,6 +57,9 @@ function App() {
                         </Route>
                         <Route path="/checkout">
                             <Checkout />
+                        </Route>
+                        <Route path="/order-concluded">
+                            <OrderConcluded setCart={setCart} />
                         </Route>
                     </Switch>
                     <GlobalStyle />

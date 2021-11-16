@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
-import { getProductInfo, postCartItem } from "../Services/api.services.js";
+import { getProductInfo } from "../Services/api.services.js";
 import UserContext from "../Contexts/UserContext.js";
 import CartContext from "../Contexts/CartContext.js";
 import decodeToken from "../Auxiliar/decodeToken";
@@ -44,17 +44,18 @@ function Product({ setCart }) {
             user_id: userId,
         };
 
-        if (!userId) {
-            cart.forEach(product => {
-                if (body.product_id === product.body.product_id) {
-                    product.body.quantity += 1;
-                    alreadyInCart = true;
-                }
-            });
-            if (!alreadyInCart) setCart([...cart, { body }]);
-            alreadyInCart = false;
-            console.log(cart);
-        } else postCartItem(body);
+        cart.forEach(product => {
+            if (body.product_id === product.body.product_id) {
+                product.body.quantity += 1;
+                alreadyInCart = true;
+                localStorage.setItem("cart", JSON.stringify(cart));
+            }
+        });
+        if (!alreadyInCart) {
+            setCart([...cart, { body }]);
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+        alreadyInCart = false;
     }
 
     return (

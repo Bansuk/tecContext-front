@@ -90,4 +90,9 @@ const Total = styled.div`
     }
 `;
 
-export { Container, Subcontainer, Cart, Products, Total };
+const Quantity = styled.div`
+    display: flex;
+    justify-content: space-around;
+`;
+
+export { Container, Subcontainer, Cart, Products, Total, Quantity };

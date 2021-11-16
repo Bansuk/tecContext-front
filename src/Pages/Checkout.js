@@ -1,7 +1,9 @@
 import { MdAddShoppingCart } from "react-icons/md";
 import CartContext from "../Contexts/CartContext.js";
+import UserContext from "../Contexts/UserContext.js";
+import decodeToken from "../Auxiliar/decodeToken.js";
 import { useContext, useState, useEffect } from "react";
-import { getProductInfo } from "../Services/api.services.js";
+import { getProductInfo, postCartItem } from "../Services/api.services.js";
 import {
     Container,
     Subcontainer,
@@ -10,10 +12,14 @@ import {
     Total,
 } from "../Styles/styleCheckout.js";
 import ProductRow from "../Components/ProductRow.js";
+import { useHistory } from "react-router";
 
 function Checkout() {
+    const history = useHistory();
     const cart = useContext(CartContext);
     const [products, setProducts] = useState([]);
+    const token = useContext(UserContext);
+    const { userId } = token && decodeToken(token);
     let total = 0;
 
     useEffect(() => {
@@ -29,6 +35,17 @@ function Checkout() {
     products.forEach(product => {
         total += product.info.price * product.quantity;
     });
+
+    function finishOrder() {
+        cart.forEach(product => {
+            const body = {
+                product_id: product.body.product_id,
+                quantity: product.body.quantity,
+                user_id: userId,
+            };
+            postCartItem(body).then(res => history.push("/order-concluded"));
+        });
+    }
 
     return (
         <Container>
@@ -67,7 +84,13 @@ function Checkout() {
                             minimumFractionDigits: 2,
                         })}`}</span>
                     </div>
-                    <button>Fechar compra</button>
+                    {userId ? (
+                        <button onClick={finishOrder}>Fechar compra</button>
+                    ) : (
+                        <button onClick={() => history.push("/sign-in")}>
+                            Faça login!
+                        </button>
+                    )}
                 </Total>
             </Subcontainer>
         </Container>
