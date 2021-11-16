@@ -17,7 +17,7 @@ function ComponentProduct({product}) {
                 {product.discount > 0 ?
                 <>
                     <Discount>
-                        <IoIosArrowRoundDown color="#FFFFFF" size="30" />
+                        <IoIosArrowRoundDown size="30" />
                         <h4>{`${Number(product.discount) * 100}%`}</h4>
                     </Discount>
                     <p>{`R$ ${Number(product.price)

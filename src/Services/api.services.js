@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "https://tec-context.herokuapp.com";
+const URL = "https://tec-context.herokuapp.com/";
 
 function signUpUser(user) {
     return axios.post(`${URL}sign-up`, user);

@@ -27,6 +27,9 @@ const Cart = styled.div`
         font-size: 40px;
         margin-left: 30px;
     }
+    @media (max-width: 700px) {
+        width: 90vw;
+    }
 `;
 
 const Products = styled.div`
@@ -86,6 +89,20 @@ const Total = styled.div`
 
         & :hover {
             cursor: pointer;
+        }
+    }
+    @media (max-width: 700px) {
+        position: fixed;
+        top: 120px;
+        right: 10px;
+        height: 180px;
+        text-align: center;
+        span {
+            margin-right: 5px;
+            font-size: 20px;
+        }
+        button {
+            font-size: 20px;
         }
     }
 `;

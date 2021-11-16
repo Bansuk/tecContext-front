@@ -6,6 +6,15 @@ const CategorieHeader = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 60px 0 60px;
+    @media (max-width: 500px) {
+        justify-content: space-around;
+        text-align: center;
+        margin-top: 155px;
+        h2 {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+    }
 `;
 
 const ProductsQtd = styled.div`
@@ -15,13 +24,16 @@ const ProductsQtd = styled.div`
     font-size: 20px;
     display: flex;
     align-items: center;
+    @media (max-width: 500px) {
+        font-size: 15px;
+    }
 `;
 
-const CategoryTitle = styled.div`
+const CategoryTitle = styled.h2`
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
     height: 35px;
-    width: auto;
+    width: min-content;
     border-bottom: 2px solid #00FF00;
 `;
 
@@ -32,6 +44,10 @@ const ProductsConatiner = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    @media(max-width: 500px) {
+        padding: 0;
+
+    }
 `;
 
 export {
