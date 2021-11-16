@@ -37,6 +37,7 @@ function Product({ setCart }) {
     }, [cart]);
 
     function addItemCart() {
+        let alreadyInCart = false;
         const body = {
             product_id: productId,
             quantity: 1,
@@ -44,7 +45,15 @@ function Product({ setCart }) {
         };
 
         if (!userId) {
-            setCart([...cart, { body }]);
+            cart.forEach(product => {
+                if (body.product_id === product.body.product_id) {
+                    product.body.quantity += 1;
+                    alreadyInCart = true;
+                }
+            });
+            if (!alreadyInCart) setCart([...cart, { body }]);
+            alreadyInCart = false;
+            console.log(cart);
         } else postCartItem(body);
     }
 
