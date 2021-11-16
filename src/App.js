@@ -9,6 +9,7 @@ import SignIn from "./Pages/SignIn.js";
 import ProductsByCategory from "./Pages/ProductsByCategory";
 import { useEffect, useState } from "react";
 import Product from "./Pages/Product";
+import Checkout from "./Pages/Checkout";
 
 function App() {
     const [user, setUser] = useState("");
@@ -52,6 +53,9 @@ function App() {
                         </Route>
                         <Route path="/product/:productId" exact>
                             <Product setCart={setCart} />
+                        </Route>
+                        <Route path="/checkout">
+                            <Checkout />
                         </Route>
                     </Switch>
                     <GlobalStyle />
