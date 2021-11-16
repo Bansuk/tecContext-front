@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://localhost:4000/";
+const URL = "https://tec-context.herokuapp.com/";
 
 function signUpUser(user) {
     return axios.post(`${URL}sign-up`, user);
@@ -19,11 +19,11 @@ function getProducts() {
 }
 
 function getCategories() {
-    return axios.get(`${URL}categories`)
+    return axios.get(`${URL}categories`);
 }
 
 function getProductsByCategories(categoryId) {
-    return axios.get(`${URL}categories/${categoryId}`)
+    return axios.get(`${URL}categories/${categoryId}`);
 }
 
 function getProductInfo(id) {
@@ -38,7 +38,7 @@ export {
     signUpUser,
     signInUser,
     getPromotionsProducts,
-    getProducts,  
+    getProducts,
     getCategories,
     getProductsByCategories,
     getProductInfo,

@@ -61,7 +61,7 @@ function Navbar() {
             <DivMenu isOpacity={isOpacity}>
                 <button
                     disabled={items === 0 ? true : false}
-                    onClick={() => history.push("/shopping-cart")}
+                    onClick={() => history.push("/checkout")}
                 >
                     {items === 0
                         ? "O carrinho está vazio"

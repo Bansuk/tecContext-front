@@ -35,7 +35,7 @@ function SignUp({ setUser }) {
                 setUser(token);
                 userPersistence = JSON.stringify(token);
                 localStorage.setItem("user", userPersistence);
-                history.push("/home");
+                history.push("/");
             })
             .catch(err => {
                 if (err.response.status === 401) {
