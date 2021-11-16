@@ -1,4 +1,7 @@
 import { MdAddShoppingCart } from "react-icons/md";
+import CartContext from "../Contexts/CartContext.js";
+import { useContext, useState, useEffect } from "react";
+import { getProductInfo } from "../Services/api.services.js";
 import {
     Container,
     Subcontainer,
@@ -6,8 +9,22 @@ import {
     Products,
     Total,
 } from "../Styles/styleCheckout.js";
+import ProductRow from "../Components/ProductRow.js";
 
 function Checkout() {
+    const cart = useContext(CartContext);
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        cart.forEach(product => {
+            getProductInfo(product.body.product_id).then(res => {
+                const info = res.data[0];
+                const quantity = product.body.quantity;
+                setProducts([...products, { info, quantity }]);
+            });
+        });
+    }, [cart]);
+
     return (
         <Container>
             <Subcontainer>
@@ -27,12 +44,13 @@ function Checkout() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Notebook</td>
-                                    <td>10</td>
-                                    <td>1</td>
-                                    <td>10</td>
-                                </tr>
+                                {products.map((product, index) => (
+                                    <ProductRow
+                                        key={index}
+                                        product={product.info}
+                                        quantity={product.quantity}
+                                    />
+                                ))}
                             </tbody>
                         </table>
                     </Products>
